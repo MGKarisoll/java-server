@@ -1,7 +1,6 @@
 package com.example.demo.domain;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "app_user")
@@ -16,9 +15,6 @@ public class User {
 
     @Column(name = "role")
     private String role;
-
-    @Column(name = "department")
-    private String deprtment;
 
     @Column(name = "password")
     private String password;
@@ -51,14 +47,6 @@ public class User {
         this.role = role;
     }
 
-    public String getDeprtment() {
-        return deprtment;
-    }
-
-    public void setDeprtment(String deprtment) {
-        this.deprtment = deprtment;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -73,34 +61,5 @@ public class User {
 
     public void setDepartment(Department department){
         this.department = department;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(role, user.role) &&
-                Objects.equals(deprtment, user.deprtment) &&
-                Objects.equals(password, user.password);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, username, role, deprtment, password);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", role='" + role + '\'' +
-                ", deprtment='" + deprtment + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

@@ -23,10 +23,10 @@ public class SecurityUserDetailsServiceImpl implements SecurityUserDetailsServic
         if(user == null)
             throw new UsernameNotFoundException(String.format("The username %s doesn't exist", username));
 
-        List<GrantedAuthority> autorities = new ArrayList<>();
-        autorities.add(new SimpleGrantedAuthority(user.getRole()));
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
 
         return  new org.springframework.security.core.userdetails.
-                User(user.getUsername(), user.getPassword(), autorities);
+                User(user.getUsername(), user.getPassword(), authorities);
     }
 }
